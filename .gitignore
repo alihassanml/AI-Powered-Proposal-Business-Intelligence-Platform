@@ -4,3 +4,4 @@ __pycache__/
 *.pdf
 node_modules/
 dist/
+backend/halify.db
