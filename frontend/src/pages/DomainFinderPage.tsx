@@ -19,9 +19,9 @@ interface DomainResult {
 }
 
 const CONF_META = {
-  high:   { label: 'High',   icon: CheckCircle,  cls: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-  medium: { label: 'Medium', icon: AlertCircle,  cls: 'bg-amber-50 text-amber-700 border-amber-200'       },
-  low:    { label: 'Low',    icon: XCircle,      cls: 'bg-red-50 text-red-700 border-red-200'             },
+  high:   { label: 'High',   icon: CheckCircle,  cls: 'bg-primary/10 text-primary border-primary/20' },
+  medium: { label: 'Medium', icon: AlertCircle,  cls: 'bg-secondary/10 text-secondary border-secondary/20'       },
+  low:    { label: 'Low',    icon: XCircle,      cls: 'bg-secondary/10 text-secondary border-secondary/20'             },
 };
 
 function ConfBadge({ confidence }: { confidence: DomainResult['confidence'] }) {

@@ -215,7 +215,7 @@ export default function ProposalPage() {
                         onClick={() => setProposalContent({...proposalContent, challenges: (proposalContent.challenges||[]).filter((_: any, i: number) => i !== idx)})}
                         className="absolute -top-2 -right-2 w-5 h-5 bg-error/10 text-error rounded-full border border-error/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs"
                       >×</button>
-                      <input className="w-full bg-transparent border-none p-0 text-xs font-semibold text-amber-600 mb-1.5 focus:ring-0 focus:outline-none" value={c.problem}
+                      <input className="w-full bg-transparent border-none p-0 text-xs font-semibold text-primary mb-1.5 focus:ring-0 focus:outline-none" value={c.problem}
                         onChange={e => { const n = [...(proposalContent.challenges||[])]; n[idx].problem = e.target.value; setProposalContent({...proposalContent, challenges: n}); }} />
                       <textarea className="w-full bg-transparent border-none p-0 text-xs text-on-surface-variant min-h-[50px] focus:ring-0 focus:outline-none leading-relaxed resize-none" value={c.solution}
                         onChange={e => { const n = [...(proposalContent.challenges||[])]; n[idx].solution = e.target.value; setProposalContent({...proposalContent, challenges: n}); }} />

@@ -29,10 +29,10 @@ interface VerifyResult {
 type VerdictFilter = 'all' | 'valid' | 'invalid' | 'risky' | 'unknown';
 
 const VERDICT_META = {
-  valid:   { label: 'Valid',   icon: CheckCircle,  cls: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-  invalid: { label: 'Invalid', icon: XCircle,      cls: 'bg-red-50 text-red-700 border-red-200' },
-  risky:   { label: 'Risky',   icon: AlertCircle,  cls: 'bg-amber-50 text-amber-700 border-amber-200' },
-  unknown: { label: 'Unknown', icon: HelpCircle,   cls: 'bg-sky-50 text-sky-700 border-sky-200' },
+  valid:   { label: 'Valid',   icon: CheckCircle,  cls: 'bg-primary/10 text-primary border-primary/20' },
+  invalid: { label: 'Invalid', icon: XCircle,      cls: 'bg-secondary/10 text-secondary border-secondary/20' },
+  risky:   { label: 'Risky',   icon: AlertCircle,  cls: 'bg-tertiary/20 text-primary border-tertiary/40' },
+  unknown: { label: 'Unknown', icon: HelpCircle,   cls: 'bg-secondary/10 text-secondary border-secondary/20' },
 };
 
 function VerdictBadge({ verdict }: { verdict: VerifyResult['verdict'] }) {
@@ -47,10 +47,10 @@ function VerdictBadge({ verdict }: { verdict: VerifyResult['verdict'] }) {
 }
 
 function ScoreBar({ score }: { score: number }) {
-  const color = score >= 70 ? 'bg-emerald-500' : score >= 40 ? 'bg-amber-500' : 'bg-red-500';
+  const color = score >= 70 ? 'bg-primary' : score >= 40 ? 'bg-tertiary' : 'bg-error';
   return (
     <div className="flex items-center gap-2">
-      <div className="flex-1 h-1.5 bg-surface-container-low rounded-full overflow-hidden">
+      <div className="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
         <div className={`h-full rounded-full transition-all ${color}`} style={{ width: `${score}%` }} />
       </div>
       <span className="text-[10px] font-bold text-on-surface-variant w-6 text-right">{score}</span>
@@ -459,22 +459,22 @@ export default function EmailVerifyPage() {
                         <td className="px-4 py-3 min-w-[100px]"><ScoreBar score={r.score} /></td>
                         <td className="px-4 py-3 text-xs">
                           {r.deliverable === true
-                            ? <span className="text-emerald-600 font-semibold">Yes</span>
+                            ? <span className="text-primary font-semibold">Yes</span>
                             : r.deliverable === false
-                              ? <span className="text-red-500 font-semibold">No</span>
-                              : <span className="text-amber-500 font-semibold">Unknown</span>}
+                              ? <span className="text-secondary font-semibold">No</span>
+                              : <span className="text-secondary font-semibold">Unknown</span>}
                         </td>
                         <td className="px-4 py-3 text-xs">
                           {r.disposable
-                            ? <span className="text-red-500 font-semibold">Yes</span>
-                            : <span className="text-emerald-600">No</span>}
+                            ? <span className="text-secondary font-semibold">Yes</span>
+                            : <span className="text-primary">No</span>}
                         </td>
                         <td className="px-4 py-3 text-xs text-on-surface-variant">
                           {r.free_provider ? 'Free' : 'Business'}
                         </td>
                         <td className="px-4 py-3 text-xs">
                           {r.role_account
-                            ? <span className="text-amber-600 font-semibold">Yes</span>
+                            ? <span className="text-secondary font-semibold">Yes</span>
                             : <span className="text-on-surface-variant">No</span>}
                         </td>
                         <td className="px-4 py-3 text-[11px] text-on-surface-variant font-mono max-w-[160px] truncate">

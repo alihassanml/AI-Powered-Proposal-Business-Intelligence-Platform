@@ -68,8 +68,8 @@ function ActivityChart({ entries }: { entries: HistoryEntry[] }) {
                 <div className="w-full rounded overflow-hidden flex flex-col-reverse" style={{ height: barH }}>
                   {d.maps > 0     && <div className="w-full bg-secondary/70"    style={{ height: `${(d.maps     / total) * 100}%` }} />}
                   {d.proposal > 0 && <div className="w-full bg-primary/60"      style={{ height: `${(d.proposal / total) * 100}%` }} />}
-                  {d.email > 0    && <div className="w-full bg-emerald-400/70"  style={{ height: `${(d.email    / total) * 100}%` }} />}
-                  {d.domain > 0   && <div className="w-full bg-violet-400/70"   style={{ height: `${(d.domain   / total) * 100}%` }} />}
+                  {d.email > 0    && <div className="w-full bg-primary/50"      style={{ height: `${(d.email    / total) * 100}%` }} />}
+                  {d.domain > 0   && <div className="w-full bg-secondary/50"    style={{ height: `${(d.domain   / total) * 100}%` }} />}
                 </div>
               ) : (
                 <div className="w-full rounded bg-outline-variant/30" style={{ height: 2 }} />
@@ -90,8 +90,8 @@ function ActivityChart({ entries }: { entries: HistoryEntry[] }) {
 const TYPE_META = {
   maps:     { icon: MapPin,    color: 'bg-secondary/10',  iconColor: 'text-secondary',   tag: 'Maps',     tagCls: 'bg-secondary/10 text-secondary border-secondary/20'     },
   proposal: { icon: FileText,  color: 'bg-primary/10',    iconColor: 'text-primary',     tag: 'Proposal', tagCls: 'bg-primary/10 text-primary border-primary/20'           },
-  email:    { icon: MailCheck, color: 'bg-emerald-50',    iconColor: 'text-emerald-600', tag: 'Email',    tagCls: 'bg-emerald-50 text-emerald-700 border-emerald-200'      },
-  domain:   { icon: Globe,     color: 'bg-violet-50',     iconColor: 'text-violet-600',  tag: 'Domain',   tagCls: 'bg-violet-50 text-violet-700 border-violet-200'          },
+  email:    { icon: MailCheck, color: 'bg-primary/10',    iconColor: 'text-primary',     tag: 'Email',    tagCls: 'bg-primary/10 text-primary border-primary/20'         },
+  domain:   { icon: Globe,     color: 'bg-secondary/10',  iconColor: 'text-secondary',   tag: 'Domain',   tagCls: 'bg-secondary/10 text-secondary border-secondary/20'     },
 } as const;
 
 function GridCard({
