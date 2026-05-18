@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+groq
+playwright
+pydantic
+python-multipart
+python-dotenv
+jinja2
+aiofiles
