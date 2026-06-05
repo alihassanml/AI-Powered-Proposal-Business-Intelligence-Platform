@@ -153,18 +153,6 @@ export default function DashboardPage({ onNavigate }: Props) {
           </div>
         </div>
 
-        {/* Coming soon */}
-        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
-          <p className="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Coming Soon</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {COMING_SOON.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-3 bg-surface-container-low border border-dashed border-outline-variant rounded-xl px-4 py-3.5 opacity-60">
-                <Icon size={16} className="text-outline shrink-0" />
-                <span className="text-sm font-medium text-on-surface-variant">{label}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
       </div>
     </div>

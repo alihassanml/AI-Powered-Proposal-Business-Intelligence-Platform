@@ -3,97 +3,118 @@
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
-  /* Background / Surface - New Teal/Blue-Gray Palette */
-  --color-background:                #F0F0F0;
-  --color-surface:                   #F0F0F0;
+  /* ===========================================================
+     halify.ai — Professional Indigo + Slate theme
+     Single accent (indigo) · soft borders · clean surfaces
+     =========================================================== */
+
+  /* Background / Surface — cool, soft neutral canvas */
+  --color-background:                 #F5F6F8;
+  --color-surface:                    #F5F6F8;
   --color-surface-bright:             #ffffff;
-  --color-surface-dim:                #a2a2a2;
+  --color-surface-dim:                #e4e7ec;
   --color-surface-container-lowest:   #ffffff;
-  --color-surface-container-low:      #ffffff;
-  --color-surface-container:          #ffffff;
-  --color-surface-container-high:     #ffffff;
-  --color-surface-container-highest:  #ffffff;
+  --color-surface-container-low:      #fbfcfd;
+  --color-surface-container:          #f2f4f7;
+  --color-surface-container-high:     #eceef2;
+  --color-surface-container-highest:  #e6e9ee;
 
-  /* Primary - Teal/Blue-Gray (#5C7E8F) */
-  --color-primary:                    #5c7e8f;
+  /* Primary — Indigo (#4F46E5) */
+  --color-primary:                    #4f46e5;
   --color-on-primary:                 #ffffff;
-  --color-primary-container:          #6d8fa1;
-  --color-on-primary-container:       #ffffff;
-  --color-primary-fixed:             #F0F0F0;
-  --color-primary-fixed-dim:          #b5c5d1;
-  --color-on-primary-fixed:           #1a2a36;
-  --color-on-primary-fixed-variant:   #3d5563;
-  --color-inverse-primary:            #b5c5d1;
+  --color-primary-container:          #6366f1;
+  --color-on-primary-container:       #eef0ff;
+  --color-primary-fixed:              #e5e6fd;
+  --color-primary-fixed-dim:          #c7c9f9;
+  --color-on-primary-fixed:           #1e1b4b;
+  --color-on-primary-fixed-variant:   #3730a3;
+  --color-inverse-primary:            #c7c9f9;
 
-  /* Secondary - Gray (#A2A2A2) */
-  --color-secondary:                  #a2a2a2;
+  /* Secondary — shares the indigo accent for a tight, cohesive palette */
+  --color-secondary:                  #4f46e5;
   --color-on-secondary:               #ffffff;
-  --color-secondary-container:        #b5b5b5;
-  --color-on-secondary-container:     #ffffff;
-  --color-secondary-fixed:           #F0F0F0;
-  --color-secondary-fixed-dim:        #c8d3d8;
-  --color-on-secondary-fixed:         #2a2a2a;
-  --color-on-secondary-fixed-variant: #5a5a5a;
+  --color-secondary-container:        #e6e7fd;
+  --color-on-secondary-container:     #312e81;
+  --color-secondary-fixed:            #eef0ff;
+  --color-secondary-fixed-dim:        #c7c9f9;
+  --color-on-secondary-fixed:         #1e1b4b;
+  --color-on-secondary-fixed-variant: #3730a3;
 
-  /* Tertiary - Light Blue-Gray (#D4DDE2) */
-  --color-tertiary:                  #F0F0F0;
-  --color-on-tertiary:                #5c7e8f;
-  --color-tertiary-container:         #e5ecf0;
-  --color-on-tertiary-container:      #5c7e8f;
-  --color-tertiary-fixed:             #e5ecf0;
-  --color-tertiary-fixed-dim:        #F0F0F0;
-  --color-on-tertiary-fixed:          #1a2a36;
-  --color-on-tertiary-fixed-variant:  #5c7e8f;
+  /* Tertiary — Amber (used for mid-range states e.g. score bars) */
+  --color-tertiary:                   #f59e0b;
+  --color-on-tertiary:                #ffffff;
+  --color-tertiary-container:         #fef3dd;
+  --color-on-tertiary-container:      #92400e;
+  --color-tertiary-fixed:             #fef3dd;
+  --color-tertiary-fixed-dim:         #fce2a8;
+  --color-on-tertiary-fixed:          #78350f;
+  --color-on-tertiary-fixed-variant:  #b45309;
 
-  /* Error - Using primary teal for consistency */
-  --color-error:              #5c7e8f;
-  --color-on-error:           #ffffff;
-  --color-error-container:   #F0F0F0;
-  --color-on-error-container: #5c7e8f;
+  /* Error — true semantic red */
+  --color-error:                      #dc2626;
+  --color-on-error:                   #ffffff;
+  --color-error-container:            #fdecec;
+  --color-on-error-container:         #991b1b;
 
-  /* On-surface */
-  --color-on-background:        #2a3a42;
-  --color-on-surface:           #2a3a42;
-  --color-on-surface-variant:   #5c7e8f;
-  --color-outline:              #8a98a2;
-  --color-outline-variant:      #b5c5d1;
-  --color-surface-tint:         #5c7e8f;
-  --color-inverse-surface:      #3a4a52;
-  --color-inverse-on-surface:   #f0f4f7;
+  /* On-surface / outlines — slate text, soft borders */
+  --color-on-background:        #1a1d26;
+  --color-on-surface:           #1a1d26;
+  --color-on-surface-variant:   #5b6472;
+  --color-outline:              #cdd2db;
+  --color-outline-variant:      #e6e9ef;
+  --color-surface-tint:         #4f46e5;
+  --color-inverse-surface:      #2a2e3a;
+  --color-inverse-on-surface:   #f3f4f7;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background-color:#F0F0F0;
-  color: #2a3a42;
+  background-color: #F5F6F8;
+  color: #1a1d26;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
 }
 
-/* Sidebar styles */
+/* Sidebar surface */
 aside {
   background-color: #ffffff !important;
 }
 
 /* Main content area */
 main, [role="main"] {
-  background-color:#F0F0F0;
+  background-color: #F5F6F8;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar        { width: 6px; height: 6px; }
-::-webkit-scrollbar-track  { background:#F0F0F0; }
-::-webkit-scrollbar-thumb  { background: #8a98a2; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #5c7e8f; }
-
-/* Card utility */
-.card {
-  background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
-  box-shadow: 0 4px 20px -2px rgba(92, 126, 143, 0.08);
+/* Text selection — subtle indigo wash */
+::selection {
+  background: rgba(79, 70, 229, 0.16);
+  color: #1a1d26;
 }
 
-/* Light background for cards on light background */
+/* Smoother interactions on actionable elements */
+a,
+button {
+  transition: background-color .18s ease, color .18s ease,
+              border-color .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+
+/* Slim, modern scrollbar */
+::-webkit-scrollbar        { width: 9px; height: 9px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: #d3d8e0; border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: #b3bccb; background-clip: padding-box; }
+
+/* Card utility — clean white surface, soft border, layered elevation (no gradient) */
 .card {
-  border-color: #b5c5d1;
+  background: #ffffff;
+  border-color: #e6e9ef;
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 1px 3px rgba(16, 24, 40, 0.06);
 }

@@ -95,8 +95,10 @@ export default function ProposalPage() {
         content: proposalContent, branding, template: selectedTemplate,
       }, { responseType: 'blob' });
       const url = window.URL.createObjectURL(new Blob([res.data]));
+      const rawTitle = proposalContent?.title || 'proposal';
+      const safeTitle = rawTitle.replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '_') || 'proposal';
       const a = document.createElement('a');
-      a.href = url; a.setAttribute('download', 'proposal.pdf');
+      a.href = url; a.setAttribute('download', `${safeTitle}.pdf`);
       document.body.appendChild(a); a.click();
     } catch { /* ignore */ } finally { setLoading(false); }
   };

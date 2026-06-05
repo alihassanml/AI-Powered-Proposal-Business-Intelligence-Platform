@@ -4,13 +4,11 @@ from datetime import datetime
 from playwright.async_api import async_playwright
 
 DEFAULT_NAME     = "Ali Hassan"
-DEFAULT_EMAIL    = "alihassanbscs99@gmail.com"
+
 DEFAULT_COMPANY  = "Software Engineer & AI Expert"
 DEFAULT_LINKEDIN = "linkedin.com/in/alihassanml"
 DEFAULT_WEBSITE  = "alihassanml.vercel.app"
 DEFAULT_UPWORK   = "upwork.com/freelancers/~alihassanml"
-DEFAULT_PHONE    = "+92 304 863 0925"
-DEFAULT_PHONE_WA = "923048630925"
 
 SAMPLE_CONTENT = {
     "title": "Production RAG Knowledge System",
@@ -293,7 +291,6 @@ body {{
     </div>
     <div class="cline">
       <div class="cemail">{b['name']}</div>
-      <a href="https://wa.me/{b['phone_wa']}" class="cwa">&#9742; {b['phone']}</a>
     </div>
   </div>
 </div>
@@ -316,13 +313,7 @@ body {{
   <div class="qbox">{q_items}</div>
   <div class="stitle">Next Steps &amp; Availability</div>
   <div class="txt">{content.get('closing','')}</div>
-  <div class="links">
-    <div class="lrow"><svg width="13" height="13" fill="none" stroke="#2dd4bf" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>GitHub: <a href="{b['github']}">{b['github_d']}</a></div>
-    <div class="lrow"><svg width="13" height="13" fill="none" stroke="#2dd4bf" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" stroke-width="2"/></svg>LinkedIn: <a href="https://{b['linkedin']}">{b['linkedin']}</a></div>
-    <div class="lrow"><svg width="13" height="13" fill="none" stroke="#2dd4bf" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>Website: <a href="https://{b['website']}">{b['website']}</a></div>
-    <div class="lrow"><svg width="13" height="13" fill="none" stroke="#2dd4bf" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8M12 17v4"/></svg>Upwork: <a href="https://{b['upwork']}">{b['upwork']}</a></div>
-  </div>
-  <div class="pfooter"><div>{b['name']}</div><div><a href="https://wa.me/{b['phone_wa']}" style="color:inherit;text-decoration:none;font-size:9px;">&#9742; {b['phone']}</a></div></div>
+  <div class="pfooter"><div>{b['name']}</div></div>
 </div>
 </body></html>"""
 
@@ -461,13 +452,12 @@ body {{
   <div class="cbody">
     <div class="ccard">
       <div><div class="cl">Expert Consultant</div><div class="cv">{b['name']}</div><div class="cs">{b['company']}</div></div>
-      <div><div class="cl">Date Issued</div><div class="cv">{b['date']}</div><div class="cs">{b['email']}</div></div>
+      <div><div class="cl">Date Issued</div><div class="cv">{b['date']}</div></div>
     </div>
     <div>
       <hr class="cdivline">
       <div class="cfooter">
         <span class="cfooter-left">{b['name']}</span>
-        <a href="https://wa.me/{b['phone_wa']}" class="cwa">&#9742; {b['phone']}</a>
       </div>
     </div>
   </div>
@@ -491,13 +481,7 @@ body {{
   <div class="qbox">{q_items}</div>
   <div class="stitle">Next Steps &amp; Availability</div>
   <div class="txt">{content.get('closing','')}</div>
-  <div class="links">
-    <a class="lchip" href="{b['github']}">{b['github_d']}</a>
-    <a class="lchip" href="https://{b['linkedin']}">{b['linkedin']}</a>
-    <a class="lchip" href="https://{b['website']}">{b['website']}</a>
-    <a class="lchip" href="https://{b['upwork']}">{b['upwork']}</a>
-  </div>
-  <div class="pfooter"><div>{b['name']}</div><div><a href="https://wa.me/{b['phone_wa']}" style="color:inherit;text-decoration:none;font-size:9px;">&#9742; {b['phone']}</a></div></div>
+  <div class="pfooter"><div>{b['name']}</div></div>
 </div>
 </body></html>"""
 
@@ -635,11 +619,10 @@ body {{
   <div class="cfoot">
     <div class="cmeta">
       <div class="mb"><div class="ml">Prepared By</div><div class="mv">{b['name']}</div><div class="ms">{b['company']}</div></div>
-      <div class="mb" style="text-align:right"><div class="ml">Date Issued</div><div class="mv">{b['date']}</div><div class="ms">{b['email']}</div></div>
+      <div class="mb" style="text-align:right"><div class="ml">Date Issued</div><div class="mv">{b['date']}</div></div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid rgba(248,250,252,.06);">
       <span style="font-size:12px;color:#64748b;font-weight:500;">{b['name']}</span>
-      <a href="https://wa.me/{b['phone_wa']}" class="cwa">&#9742; {b['phone']}</a>
     </div>
   </div>
 </div>
@@ -662,12 +645,6 @@ body {{
   <div class="qbox"><ul style="list-style:none">{q_items}</ul></div>
   <div class="stitle">Next Steps &amp; Availability</div>
   <div class="txt">{content.get('closing','')}</div>
-  <div class="links">
-    <div class="lrow">&#8594; GitHub: <a href="{b['github']}">{b['github_d']}</a></div>
-    <div class="lrow">&#8594; LinkedIn: <a href="https://{b['linkedin']}">{b['linkedin']}</a></div>
-    <div class="lrow">&#8594; Website: <a href="https://{b['website']}">{b['website']}</a></div>
-    <div class="lrow">&#8594; Upwork: <a href="https://{b['upwork']}">{b['upwork']}</a></div>
-  </div>
-  <div class="pfooter"><div>{b['name']}</div><div><a href="https://wa.me/{b['phone_wa']}" style="color:inherit;text-decoration:none;font-size:9px;">&#9742; {b['phone']}</a></div></div>
+  <div class="pfooter"><div>{b['name']}</div></div>
 </div>
 </body></html>"""

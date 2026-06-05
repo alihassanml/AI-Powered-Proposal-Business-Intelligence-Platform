@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import asyncio
 from dotenv import load_dotenv
@@ -22,9 +23,8 @@ from proposal.agent import get_relevant_repos
 from proposal.prompts import SYSTEM_PROMPT, USER_PROMPT_TEMPLATE
 from proposal.templates import (
     SAMPLE_CONTENT,
-    DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_COMPANY,
+    DEFAULT_NAME, DEFAULT_COMPANY,
     DEFAULT_LINKEDIN, DEFAULT_WEBSITE, DEFAULT_UPWORK,
-    DEFAULT_PHONE, DEFAULT_PHONE_WA,
     render_pdf, _build_html,
 )
 from auth import (
@@ -141,16 +141,11 @@ async def preview_template(template: str):
         template = "1"
     branding = {
         "name":     DEFAULT_NAME,
-        "email":    DEFAULT_EMAIL,
         "company":  DEFAULT_COMPANY,
         "date":     datetime.now().strftime("%B %d, %Y"),
-        "github":   "https://github.com/alihassanml/",
-        "github_d": "github.com/alihassanml",
         "linkedin": DEFAULT_LINKEDIN,
         "website":  DEFAULT_WEBSITE,
         "upwork":   DEFAULT_UPWORK,
-        "phone":    DEFAULT_PHONE,
-        "phone_wa": DEFAULT_PHONE_WA,
     }
     html = _build_html(SAMPLE_CONTENT, branding, template)
     return HTMLResponse(content=html)
@@ -210,16 +205,11 @@ async def generate_proposal(
     github_display = github_url.replace("https://", "").replace("http://", "").rstrip("/")
     branding = {
         "name":     DEFAULT_NAME,
-        "email":    DEFAULT_EMAIL,
         "company":  DEFAULT_COMPANY,
         "date":     datetime.now().strftime("%B %d, %Y"),
-        "github":   github_url,
-        "github_d": github_display,
         "linkedin": DEFAULT_LINKEDIN,
         "website":  DEFAULT_WEBSITE,
         "upwork":   DEFAULT_UPWORK,
-        "phone":    DEFAULT_PHONE,
-        "phone_wa": DEFAULT_PHONE_WA,
     }
 
     return {
@@ -240,10 +230,13 @@ async def render_preview(request: Request):
 async def download_pdf(request: Request):
     data = await request.json()
     pdf_bytes = await render_pdf(data.get("content"), data.get("branding"), data.get("template", "1"))
+    raw_title = (data.get("content") or {}).get("title", "proposal")
+    safe_title = re.sub(r'[^\w\s-]', '', raw_title).strip().replace(' ', '_') or "proposal"
+    filename = f"{safe_title}.pdf"
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": "attachment; filename=proposal.pdf"},
+        headers={"Content-Disposition": f"attachment; filename={filename}"},
     )
 
 
